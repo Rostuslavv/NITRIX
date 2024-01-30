@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		CE472CC02B682C8E0051C840 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CBF2B682C8E0051C840 /* AppDelegate.swift */; };
 		CE472CC22B682C8E0051C840 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CC12B682C8E0051C840 /* SceneDelegate.swift */; };
-		CE472CC42B682C8E0051C840 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CC32B682C8E0051C840 /* ViewController.swift */; };
+		CE472CC42B682C8E0051C840 /* MoviesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CC32B682C8E0051C840 /* MoviesListViewController.swift */; };
 		CE472CCA2B682C8E0051C840 /* NITRIX.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE472CC82B682C8E0051C840 /* NITRIX.xcdatamodeld */; };
 		CE472CCC2B682C900051C840 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE472CCB2B682C900051C840 /* Assets.xcassets */; };
 		CE472CCF2B682C900051C840 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE472CCD2B682C900051C840 /* LaunchScreen.storyboard */; };
 		CE472CDA2B682C910051C840 /* NITRIXTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CD92B682C910051C840 /* NITRIXTests.swift */; };
 		CE472CE42B682C910051C840 /* NITRIXUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CE32B682C910051C840 /* NITRIXUITests.swift */; };
 		CE472CE62B682C910051C840 /* NITRIXUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CE52B682C910051C840 /* NITRIXUITestsLaunchTests.swift */; };
+		CE472CF32B6940250051C840 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CF22B6940250051C840 /* FavoritesViewController.swift */; };
+		CE472CF52B6940640051C840 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE472CF42B6940640051C840 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +41,7 @@
 		CE472CBC2B682C8E0051C840 /* NITRIX.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NITRIX.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE472CBF2B682C8E0051C840 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE472CC12B682C8E0051C840 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE472CC32B682C8E0051C840 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE472CC32B682C8E0051C840 /* MoviesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListViewController.swift; sourceTree = "<group>"; };
 		CE472CC92B682C8E0051C840 /* NITRIX.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NITRIX.xcdatamodel; sourceTree = "<group>"; };
 		CE472CCB2B682C900051C840 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE472CCE2B682C900051C840 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		CE472CDF2B682C910051C840 /* NITRIXUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NITRIXUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE472CE32B682C910051C840 /* NITRIXUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NITRIXUITests.swift; sourceTree = "<group>"; };
 		CE472CE52B682C910051C840 /* NITRIXUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NITRIXUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		CE472CF22B6940250051C840 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		CE472CF42B6940640051C840 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +105,9 @@
 			children = (
 				CE472CBF2B682C8E0051C840 /* AppDelegate.swift */,
 				CE472CC12B682C8E0051C840 /* SceneDelegate.swift */,
-				CE472CC32B682C8E0051C840 /* ViewController.swift */,
+				CE472CC32B682C8E0051C840 /* MoviesListViewController.swift */,
+				CE472CF22B6940250051C840 /* FavoritesViewController.swift */,
+				CE472CF42B6940640051C840 /* TabBarController.swift */,
 				CE472CCB2B682C900051C840 /* Assets.xcassets */,
 				CE472CCD2B682C900051C840 /* LaunchScreen.storyboard */,
 				CE472CD02B682C900051C840 /* Info.plist */,
@@ -257,9 +263,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE472CC42B682C8E0051C840 /* ViewController.swift in Sources */,
+				CE472CC42B682C8E0051C840 /* MoviesListViewController.swift in Sources */,
 				CE472CCA2B682C8E0051C840 /* NITRIX.xcdatamodeld in Sources */,
 				CE472CC02B682C8E0051C840 /* AppDelegate.swift in Sources */,
+				CE472CF52B6940640051C840 /* TabBarController.swift in Sources */,
+				CE472CF32B6940250051C840 /* FavoritesViewController.swift in Sources */,
 				CE472CC22B682C8E0051C840 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
