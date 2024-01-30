@@ -103,14 +103,11 @@
 		CE472CBE2B682C8E0051C840 /* NITRIX */ = {
 			isa = PBXGroup;
 			children = (
-				CE472CBF2B682C8E0051C840 /* AppDelegate.swift */,
-				CE472CC12B682C8E0051C840 /* SceneDelegate.swift */,
-				CE472CC32B682C8E0051C840 /* MoviesListViewController.swift */,
-				CE472CF22B6940250051C840 /* FavoritesViewController.swift */,
-				CE472CF42B6940640051C840 /* TabBarController.swift */,
-				CE472CCB2B682C900051C840 /* Assets.xcassets */,
-				CE472CCD2B682C900051C840 /* LaunchScreen.storyboard */,
-				CE472CD02B682C900051C840 /* Info.plist */,
+				CE472CFB2B6944720051C840 /* App */,
+				CE472CF82B6943B60051C840 /* Scene */,
+				CE472CF72B6943630051C840 /* Networking */,
+				CE472CF62B6943540051C840 /* Model */,
+				CE472CF92B6943C80051C840 /* Others */,
 				CE472CC82B682C8E0051C840 /* NITRIX.xcdatamodeld */,
 			);
 			path = NITRIX;
@@ -131,6 +128,57 @@
 				CE472CE52B682C910051C840 /* NITRIXUITestsLaunchTests.swift */,
 			);
 			path = NITRIXUITests;
+			sourceTree = "<group>";
+		};
+		CE472CF62B6943540051C840 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE472CF72B6943630051C840 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		CE472CF82B6943B60051C840 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				CE472CF42B6940640051C840 /* TabBarController.swift */,
+				CE472CFA2B69444E0051C840 /* TabBars */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		CE472CF92B6943C80051C840 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				CE472CCB2B682C900051C840 /* Assets.xcassets */,
+				CE472CCD2B682C900051C840 /* LaunchScreen.storyboard */,
+				CE472CD02B682C900051C840 /* Info.plist */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
+		CE472CFA2B69444E0051C840 /* TabBars */ = {
+			isa = PBXGroup;
+			children = (
+				CE472CF22B6940250051C840 /* FavoritesViewController.swift */,
+				CE472CC32B682C8E0051C840 /* MoviesListViewController.swift */,
+			);
+			path = TabBars;
+			sourceTree = "<group>";
+		};
+		CE472CFB2B6944720051C840 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CE472CBF2B682C8E0051C840 /* AppDelegate.swift */,
+				CE472CC12B682C8E0051C840 /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
