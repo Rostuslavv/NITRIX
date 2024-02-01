@@ -1,0 +1,6 @@
+framework module Pods_NITRIX {
+  umbrella header "Pods-NITRIX-umbrella.h"
+
+  export *
+  module * { export * }
+}

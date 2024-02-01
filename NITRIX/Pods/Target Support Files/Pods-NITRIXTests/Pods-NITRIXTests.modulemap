@@ -1,0 +1,6 @@
+framework module Pods_NITRIXTests {
+  umbrella header "Pods-NITRIXTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
