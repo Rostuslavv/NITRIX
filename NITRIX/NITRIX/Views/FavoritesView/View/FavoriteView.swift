@@ -81,17 +81,26 @@ extension FavoritesView: UITableViewDataSource {
         let favorites = presenter?.favoritesData ?? []
         let item = favorites[row]
         
-        if let cell = tableView.dequeueReusableCell(
-            withIdentifier: Constants.Views.Favorites.FavoritesCell.cellID) as? FavoritesCellView {
-            cell.configureCell(
-                image: item.image,
-                movieTitle: item.title)
-            return cell
-        }
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: Constants.Views.Favorites.FavoritesCell.cellID) as? FavoritesCellView else { return UITableViewCell() }
+        cell.configureCell(
+            image: item.image,
+            movieTitle: item.title, onDelete: { [weak self] in
+                self?.alert(style: .actionSheet, actions: [
+                    UIAlertAction(title: "Delete", style: .destructive, handler: { [weak  self] (cell) in
+                        self?.presenter?.removeFavorite(movie: item)
+                    }),
+                    UIAlertAction(title: "Cancel", style: .default),
+                ])
+            })
         
-        let cell = UITableViewCell()
         return cell
-        
+    }
+    
+    func alert(_ title: String? = nil, message: String? = nil, style: UIAlertController.Style, actions: [UIAlertAction]) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
+        actions.forEach(alertController.addAction)
+        present(alertController, animated: true)
     }
 }
 
@@ -136,3 +145,10 @@ extension FavoritesView: FavoritesViewProtocol {
         }
     }
 }
+
+extension FavoritesView: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+

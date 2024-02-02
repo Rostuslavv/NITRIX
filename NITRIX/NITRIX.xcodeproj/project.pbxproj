@@ -314,8 +314,8 @@
 		CE472D082B6AA8850051C840 /* FavoritesView */ = {
 			isa = PBXGroup;
 			children = (
-				CE472D212B6ACCE50051C840 /* DataManager */,
 				CE472D1E2B6ACCA40051C840 /* Router */,
+				CE472D212B6ACCE50051C840 /* DataManager */,
 				CE472D1B2B6ACC730051C840 /* Presenter */,
 				CE472D182B6ACC470051C840 /* Interactor */,
 				CE472D172B6ACBB20051C840 /* View */,

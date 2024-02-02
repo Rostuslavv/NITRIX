@@ -16,6 +16,7 @@ protocol FavoritesViewInteractorInputProtocol: AnyObject {
     func getFavorites(
         success: @escaping (([Movie]) -> ()),
         failure: @escaping ((CoreDataErrors) -> ()))
+    func removeFavorite(movie: Movie, success: @escaping (() -> ()), failure: @escaping ((CoreDataErrors) -> ()))
 }
 
 
@@ -29,6 +30,12 @@ protocol FavoritesViewRemoteDataManagerOutputProtocol: AnyObject { }
 
 // MARK: - FavoritesViewInteractorInputProtocol
 final class FavoritesViewInteractor: FavoritesViewInteractorInputProtocol {
+    var interactor: FavoritesViewInteractorInputProtocol?
+
+    func removeFavorite(movie: Movie, success: @escaping (() -> ()), failure: @escaping ((CoreDataErrors) -> ())) {
+        localDatamanager?.removeFavorite(movie: movie, success: success, failure: failure)
+    }
+    
     
     // MARK: Properties
     weak var presenter: FavoritesViewInteractorOutputProtocol?

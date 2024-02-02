@@ -15,6 +15,8 @@ protocol FavoritesViewLocalDataManagerInputProtocol: AnyObject {
     func getFavorites(
         success: @escaping (([Movie]) -> ()),
         failure: @escaping ((CoreDataErrors) -> ()))
+    func removeFavorite(movie: Movie, success: @escaping (() -> ()), failure: @escaping ((CoreDataErrors) -> ()))
+    
 }
 
 
@@ -46,6 +48,29 @@ final class FavoritesViewLocalDataManager {
 
 // MARK: - FavoritesViewLocalDataManagerInputProtocol
 extension FavoritesViewLocalDataManager: FavoritesViewLocalDataManagerInputProtocol {
+    func removeFavorite(movie: Movie, success: @escaping (() -> ()), failure: @escaping ((CoreDataErrors) -> ())) {
+        guard let movieID32 = Int32(exactly: movie.movieID) else {
+            failure(.overflowInt32)
+            return
+        }
+        
+        let predicate = NSPredicate(
+            format: "%K = %@",
+            #keyPath(CDFavorite.id),
+            NSNumber(value: movieID32))
+        
+        fetchRequest.predicate = predicate
+        do {
+            let moviesFetched = try managedObjectContext.fetch(fetchRequest)
+            _ = moviesFetched.map { managedObjectContext.delete($0) }
+            try CoreDataManager.shared.saveContext()
+            success()
+        } catch {
+            failure(.removeFavoriteMovie)
+        }
+        fetchRequest.predicate = nil
+    }
+    
     
     func getFavorites(
         success: @escaping (([Movie]) -> ()),
@@ -54,6 +79,7 @@ extension FavoritesViewLocalDataManager: FavoritesViewLocalDataManagerInputProto
                 searchResults = try managedObjectContext.fetch(fetchRequest)
                 let favorites = mapSearchResultsToMovies(searchResults: searchResults)
                 success(favorites)
+                
             } catch let error {
                 print("\(Constants.Strings.errorLiteral): \(error.localizedDescription)")
                 failure(.fetchingRequest)

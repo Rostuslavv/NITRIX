@@ -16,6 +16,7 @@ protocol FavoritesViewPresenterProtocol: AnyObject {
     var wireFrame: FavoritesViewWireFrameProtocol? { get set }
     var favoritesData: [Movie] { get }
     func goToDetailView(movieID: Int)
+    func removeFavorite(movie: Movie)
     func viewDidLoad()
     func viewWillAppear()
 }
@@ -61,6 +62,19 @@ final class FavoritesViewPresenter {
 
 // MARK: - FavoritesViewPresenterProtocol
 extension FavoritesViewPresenter: FavoritesViewPresenterProtocol {
+    func removeFavorite(movie: Movie) {
+        interactor?.removeFavorite(movie: movie, success: { [weak self] in
+            guard let self else { return }
+            if let removeIndex = self.favorites.firstIndex(where: { $0.movieID == movie.movieID }) {
+                favorites.remove(at: removeIndex)
+                self.view?.refreshData(favorites: self.favorites)
+            }
+        }, failure: { coreDataError in
+            print("\(Constants.Strings.errorLiteral): \(coreDataError)")
+        })
+        
+    }
+    
     func goToDetailView(movieID: Int) {
         guard let view = view else { return }
         

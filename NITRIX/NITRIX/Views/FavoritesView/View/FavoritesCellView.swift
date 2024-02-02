@@ -8,17 +8,27 @@
 import Foundation
 import UIKit
 
-class FavoritesCellView: UITableViewCell {
+final class FavoritesCellView: UITableViewCell {
     
     @IBOutlet weak var movieImage: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
+    private var onDelete: (() -> Void)?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureRecognized(_:)))
+        self.contentView.addGestureRecognizer(longPressGesture)
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    @objc func longPressGestureRecognized(_ sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        let feedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+        feedbackGenerator.prepare()
+        feedbackGenerator.impactOccurred()
+        
+        onDelete?()
     }
     
     private func cleanCell() {
@@ -27,9 +37,9 @@ class FavoritesCellView: UITableViewCell {
     }
     
     // Setup cell view with this data
-    func configureCell(image: String, movieTitle: String) {
+    func configureCell(image: String, movieTitle: String, onDelete: @escaping () -> Void) {
         cleanCell()
-        
+        self.onDelete = onDelete
         titleLabel.text = movieTitle
         
         if let placeholderImage = UIImage(systemName: Constants.Views.MovieList.MovieCell.placeholderImage) {
@@ -39,3 +49,4 @@ class FavoritesCellView: UITableViewCell {
         }
     }
 }
+
